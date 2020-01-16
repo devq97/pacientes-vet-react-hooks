@@ -1,18 +1,20 @@
 import React from "react";
 
-const Cita = ({cita}) => (
-    <div className="media mt-3">
-        <div className="media-body">
-            <h3 className="mt-0">{cita.mascota}</h3>
-            <p className="card-text"><span>Nombre Dueño: </span> {cita.propietario} </p>
-            <p className="card-text"><span>Fecha: </span> {cita.fecha} </p>
-            <p className="card-text"><span>Hora: </span> {cita.hora} </p>
-            <p className="card-text"><span>Sintomas: </span> </p>
-            <p className="card-text">{cita.sintomas}</p>
+const Cita = ({cita, eliminarCita}) => (
+  <div className="cita">
+    <p>Mascota: <span>{cita.mascota}</span></p>
+    <p>Dueño: <span>{cita.propietario}</span></p>
+    <p>Fecha: <span>{cita.fecha}</span></p>
+    <p>Hora: <span>{cita.hora}</span></p>
+    <p>Síntomas: <span>{cita.sintomas}</span></p>
 
-            <button className="button eliminar u-full-width">Eliminar &times;</button>
-        </div>
-    </div>
+    <button
+      className="button eliminar u-full-width"
+      onClick={ () => eliminarCita(cita.id) }
+    >
+      Eliminar &times;
+    </button>
+  </div>
 );
 
 export default Cita;

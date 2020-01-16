@@ -1,20 +1,17 @@
-import React from "react";
+import React, {Fragment} from "react";
 import Cita from "./Cita";
 
-const ListaCitas = ({citas}) => (
-    <div className="card mt-2 py-5">
-        <div className="card-body">
-            <h2 className="card-title text-center">Administra las citas aquí</h2>
-            <div className="lista-citas">
-                {citas.map( cita => (
-                    <Cita
-                        key={cita.id}
-                        cita={cita}
-                    />
-                ))}
-            </div>
-        </div>
-    </div>
+const ListaCitas = ({citas, eliminarCita}) => (
+  <Fragment>
+    <h2>Administra tus citas</h2>
+    {citas.map(cita => (
+      <Cita
+        key={cita.id}
+        cita={cita}
+        eliminarCita={eliminarCita}
+      />
+    ))}
+  </Fragment>
 );
 
 export default ListaCitas;
