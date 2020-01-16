@@ -18,7 +18,7 @@ const App = () => {
     } else {
       localStorage.setItem('citas', JSON.stringify([]));
     }
-  }, [citas]);
+  }, [citas, citasIniciales]);
 
   const crearNuevaCita = cita => {
     guardarCitas([
