@@ -15,8 +15,9 @@ const App = () => {
   };
 
   const eliminarCita = id => {
-    console.log(id);
-  }
+    let nuevasCitas = citas.filter(cita => cita.id !== id );
+    guardarCitas(nuevasCitas);
+  };
 
   return (
     <div className="container">
