@@ -1,5 +1,6 @@
 import React, {Fragment} from "react";
 import Cita from "./Cita";
+import PropTypes from 'prop-types';
 
 const ListaCitas = ({citas, eliminarCita}) => (
   <Fragment>
@@ -13,5 +14,10 @@ const ListaCitas = ({citas, eliminarCita}) => (
     ))}
   </Fragment>
 );
+
+ListaCitas.propTypes = {
+  citas: PropTypes.array.isRequired,
+  eliminarCita: PropTypes.func.isRequired
+};
 
 export default ListaCitas;
