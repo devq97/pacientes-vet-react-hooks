@@ -1,11 +1,24 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from "./components/Header";
 import Formulario from "./components/Formulario";
 import ListaCitas from "./components/ListaCitas";
 
 const App = () => {
 
-  const [citas, guardarCitas] = useState([]);
+  let citasIniciales = JSON.parse(localStorage.getItem('citas'));
+  if (!citasIniciales) {
+    citasIniciales = [];
+  }
+
+  const [citas, guardarCitas] = useState(citasIniciales);
+
+  useEffect( () => {
+    if (citasIniciales) {
+      localStorage.setItem('citas', JSON.stringify(citas));
+    } else {
+      localStorage.setItem('citas', JSON.stringify([]));
+    }
+  }, [citas]);
 
   const crearNuevaCita = cita => {
     guardarCitas([

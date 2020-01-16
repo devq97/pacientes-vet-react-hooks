@@ -3,7 +3,7 @@ import Cita from "./Cita";
 
 const ListaCitas = ({citas, eliminarCita}) => (
   <Fragment>
-    <h2>Administra tus citas</h2>
+    {(citas.length === 0) ? <h2>No hay citas</h2> : <h2>Administra tus citas</h2>}
     {citas.map(cita => (
       <Cita
         key={cita.id}
